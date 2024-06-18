@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Hospital.Models.AModels>;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hospittal Management</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body><div class="mt-2" style="width:50%">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/AppointmentControllers/AAdd" class="btn btn-primary">AddAppointment</a>
+        </div>
+        <table class="table table-striped" style="margin-left:250px;border:2px solid black;color:black">
+            <thead>
+                <tr>
+                    <th>Doctor_Name</th>
+                    <th>Patient_Name</th>
+                    <th>Date_Of_Appointment</th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var AModels in Model)
+                {
+                    <tr>
+                        <td>@AModels.Doctor_Name</td>
+                        <td>@AModels.Patient_Name</td>
+                        <td>@AModels.date</td>
+                        <td>
+    <div class="anger">
+        <a href="/AppointmentControllers/AUpdate?Id=@AModels.Id" class="edite"><i class="bi bi-plus-circle"></i>Edit</a>
+   
+   
+         <a href="/AppointmentControllers/ADelete?Id=@AModels.Id" class="delete"><i class="bi bi-trash3"></i>Delete</a>
+    </div>
+                        </td>
+              
+    </tr>
+
+      }
+
+
+            </thead>
+        </table>
+    </div>
+</div>
+</body>
+</html>

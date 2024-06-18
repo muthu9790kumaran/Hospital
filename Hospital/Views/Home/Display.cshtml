@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Hospital.Models.Pmodels>;
+<div class="mt-2" style="width:50%">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/Home/Muthu" class="btn btn-primary">AddPatients</a>
+        </div>
+        <table class="table table-striped" style="margin-left:250px;border:2px solid black;color:black">
+            <thead>
+                <tr>
+                    <th>First_Name</th>
+                    <th>Last_Name</th>
+                    <th>Phone_Number</th>
+                    <th>Action</th>
+                </tr>
+               
+                    @foreach(var Pmodels in Model)
+                {
+                    <tr>
+                        <td>@Pmodels.First_Name</td>
+                        <td>@Pmodels.Last_Name</td>
+                        <td>@Pmodels.Phone_Number</td>
+                        <td><a href="/Home/Update?Id=@Pmodels.Id">Edit</a><a href="/Home/Delete?Id=@Pmodels.Id">Delete</a></td>
+                    </tr>
+                    }
+                
+
+            </thead>
+        </table>
+    </div>
+</div>

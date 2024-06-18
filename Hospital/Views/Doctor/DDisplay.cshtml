@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Hospital.Models.DModels>;
+<div class="mt-2" style="width:50%">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/Doctor/DAdd" class="btn btn-primary">AddDoctors</a>
+        </div>
+        <table class="table table-striped" style="margin-left:250px;border:2px solid black ;color:black">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var DModels in Model)
+                {
+                    <tr>
+                        <td>@DModels.Name</td>
+                        <td>@DModels.Specialization</td>
+                        <td><a href="/Doctor/DUpdate?Id=@DModels.Id">Edit</a><a href="/Doctor/DDelete?Id=@DModels.Id">Delete</a></td>
+                    </tr>
+                }
+
+
+            </thead>
+        </table>
+    </div>
+</div>
